@@ -6,6 +6,11 @@ class Point(val x: Int, val y: Int) {
   override def toString(): String = "(" + x + ", " + y + ")"
 }
 
+class Complex(real: Double, imaginary: Double) {
+  def re = real
+  def im = imaginary
+}
+
 object PrintPoint {
   def print_point(): Unit = {
     val p1 = new Point(1, 1)
@@ -18,5 +23,8 @@ object PrintPoint {
     println("call print_point")
 
     print_point()
+
+    val c = new Complex(1.2, 3.4)
+    println(c.re)
   }
 }
