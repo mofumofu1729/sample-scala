@@ -1,3 +1,5 @@
+import scala.collection.mutable.ArrayBuffer
+
 class Point(val x: Int, val y: Int) {
   def +(p: Point): Point = {
     new Point(x + p.x, y + p.y)
@@ -14,6 +16,13 @@ class Complex(real: Double, imaginary: Double) {
 class Person(name: String = "taro", age: Int) {
   override def toString(): String = name + "(" + age + ")"
 }
+
+trait Pet {
+  val name: String
+}
+
+class Cat(val name: String) extends Pet
+class Dog(val name: String) extends Pet
 
 object PrintPoint {
   def print_point(): Unit = {
@@ -33,5 +42,13 @@ object PrintPoint {
 
     val person = new Person(age = 25)
     println(person)
+
+    val dog = new Dog("Harry")
+    val cat = new Cat("Sally")
+
+    val animals = ArrayBuffer.empty[Pet]
+    animals.append(dog)
+    animals.append(cat)
+    animals.foreach(pet => println(pet.name))
   }
 }
