@@ -50,5 +50,10 @@ object PrintPoint {
     animals.append(dog)
     animals.append(cat)
     animals.foreach(pet => println(pet.name))
+   
+    val salaries = Seq(20000, 70000, 40000)
+    val doubleSalary = (x: Int) => x * 2
+    val newSalaries = salaries.map(doubleSalary)
+    println(newSalaries)
   }
 }
