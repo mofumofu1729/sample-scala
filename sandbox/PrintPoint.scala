@@ -43,6 +43,9 @@ object PrintPoint {
 
     print_point()
 
+    val f = urlBuilder(ssl = true, "hoge")
+    println(f("endpoint", "home"))
+
     val c = new Complex(1.2, 3.4)
     println(c.re)
 
