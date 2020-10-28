@@ -17,10 +17,6 @@ class Person(name: String = "taro", age: Int) {
   override def toString(): String = name + "(" + age + ")"
 }
 
-def urlBuilder(ssl: Boolean, domainName: String): (String, String) => String = {
-  val schema = if (ssl) "https://" else "http://"
-  (endpoint: String, query: String) => s"$schema$domainName/$endpoint?$query"
-}
 
 trait Pet {
   val name: String
@@ -35,6 +31,11 @@ object PrintPoint {
     val p2 = new Point(2, 3)
 
     println(p1 + p2)
+  }
+
+  def urlBuilder(ssl: Boolean, domainName: String): (String, String) => String = {
+    val schema = if (ssl) "https://" else "http://"
+    (endpoint: String, query: String) => s"$schema$domainName/$endpoint?$query"
   }
 
   def main(args: Array[String]): Unit = {
